@@ -17,7 +17,7 @@ router.post("", async (req, res) => {
 router.get("", async (req, res) => {
     try{
 
-        const checkout = await Checkout.find().populate({path: "book_id", select: "name body"}).lean().exec()
+        const checkout = await Checkout.find().populate({path: "book_id", select: "book_name body"}).lean().exec()
        return res.status(201).send(checkout)
 
     }catch(e){
